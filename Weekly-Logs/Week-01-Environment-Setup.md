@@ -44,6 +44,16 @@ Virtual network binding was disrupted during the physical move from OneDrive to 
 *   **Reset:** Initialized **Restore Defaults** to re-index the virtual switches and repair the NAT service bridge.
 *   **Validation:** Successfully verified restoration of **Layer 3 connectivity** via `ping 8.8.8.8` and confirmed DNS functionality with successful `whois` queries.
 
+### 📝 Command Audit: Infrastructure Recovery
+Below is the sequence of operations used to restore environment connectivity:
+
+| Category | Commands |
+| :--- | :--- |
+| **Storage & Partitions** | `df -h`, `sudo gparted` |
+| **Package Management** | `sudo apt clean`, `sudo apt update` |
+| **Network Diagnostics** | `ping`, `ip route show`, `whois` |
+| **Service Remediation** | `sudo systemctl restart NetworkManager` |
+| **DNS Configuration** | `sudo nano /etc/resolv.conf` |
 ---
 
 ### 🛡️ 5. SOC Perspective (The "Why")
